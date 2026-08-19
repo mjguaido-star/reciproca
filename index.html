@@ -21,7 +21,8 @@
     --f-type:"Courier Prime","Courier New",monospace;
   }
   *{box-sizing:border-box}
-  html{-webkit-text-size-adjust:100%}
+  html{-webkit-text-size-adjust:100%;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  @page{margin:0}
   body{margin:0;background:var(--paper);color:var(--ink);
     font-family:var(--f-type);font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
   .wrap{max-width:720px;margin:0 auto;padding:0 28px}
@@ -60,6 +61,8 @@
   .msg-label{font-family:var(--f-type);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;
     color:var(--red);margin-bottom:7px}
   .purpose{font-size:15px;margin:0 0 22px;color:var(--ink)}
+  .when{font-family:var(--f-type);font-size:12.5px;color:var(--mute);margin:0 0 18px;display:flex;gap:9px;align-items:baseline;flex-wrap:wrap}
+  .when b{color:var(--red);letter-spacing:.12em;text-transform:uppercase;font-weight:700;font-size:11px}
 
   .quote{font-family:var(--f-type);font-size:15.5px;line-height:1.72;padding:22px 24px;
     background:var(--inset);border-left:4px solid var(--red)}
@@ -104,7 +107,7 @@
     <div class="note">
       <span class="kicker">Cómo usarlos</span>
       <ol>
-        <li>Envíalos con días de diferencia, <strong>no seguidos</strong>. Espera respuesta antes del siguiente.</li>
+        <li>Cada mensaje trae su <strong>momento exacto</strong> (mira el «Cuándo»). Envíalos espaciados, nunca seguidos.</li>
         <li>Personaliza todo lo que va <var>entre marcas</var>: nombre, producto, objetivo, duda.</li>
         <li>Si te responde, <strong>suelta la plantilla</strong> y sé humana. Esto abre la puerta; tú sostienes la conversación.</li>
       </ol>
@@ -115,6 +118,7 @@
 <section class="msg">
   <div class="wrap">
     <div class="msg-head"><div class="msg-num">1</div><div class="msg-titles"><div class="msg-label">Mensaje 01 · reabrir sin reproche</div><h2>Vuelve a aparecer sin culpa</h2></div></div>
+    <div class="when"><b>Cuándo</b> 3–5 días después de que dejó de responder.</div>
     <p class="purpose">Retomas sin hacerle sentir mal. Nada de «te escribí y no me contestaste». Devuelves el foco a lo que <em>ella</em> quería.</p>
     <div class="quote">Hola <var>nombre</var>, te escribo sin agenda. Sé que el día a día se lo come todo y quizá <var>tu programa</var> quedó en pausa — no pasa nada. Solo quería saber cómo vas con <var>su objetivo</var>. ¿Sigue siendo algo que te ronda?</div>
     <div class="why"><span class="k">Por qué funciona</span><p>Quitas la presión y pones el foco en su meta, no en tu venta. Así baja la guardia y vuelve a hablar.</p></div>
@@ -124,6 +128,7 @@
 <section class="msg">
   <div class="wrap">
     <div class="msg-head"><div class="msg-num">2</div><div class="msg-titles"><div class="msg-label">Mensaje 02 · dar antes de pedir</div><h2>Aporta algo sin pedir nada</h2></div></div>
+    <div class="when"><b>Cuándo</b> 1–2 días después del primero, si respondió tibio o sigue en silencio.</div>
     <p class="purpose">Le das valor de verdad, sin gancho. Es el corazón del método: reciprocidad.</p>
     <div class="quote">Me acordé de ti con esto 👇 <var>recurso concreto: audio, plantilla, caso, idea</var>. Es justo para <var>el problema que mencionó</var>. Sin compromiso, quédatelo. Si te sirve, me cuentas.</div>
     <div class="why"><span class="k">Por qué funciona</span><p>La reciprocidad es la primera ley de la persuasión: cuando das primero, se activa el impulso de devolver — sin que lo pidas.</p></div>
@@ -133,6 +138,7 @@
 <section class="msg">
   <div class="wrap">
     <div class="msg-head"><div class="msg-num">3</div><div class="msg-titles"><div class="msg-label">Mensaje 03 · la pregunta que escucha</div><h2>Pregunta para entender, no para vender</h2></div></div>
+    <div class="when"><b>Cuándo</b> Cuando soltó un «me lo pienso» y desapareció (3–4 días después).</div>
     <p class="purpose">Descubres dónde está de verdad. Su respuesta te dice exactamente cómo acompañarla.</p>
     <div class="quote">Una pregunta honesta, <var>nombre</var>: cuando miraste <var>tu producto</var>, ¿qué te hizo dudar — el momento, la forma, o algo que no te terminó de encajar? Te lo pregunto para ayudarte de verdad, no para insistir.</div>
     <div class="why"><span class="k">Por qué funciona</span><p>Nombrar la duda le da permiso para ser sincera. Y una duda dicha en voz alta es una duda que ya puedes acompañar.</p></div>
@@ -142,6 +148,7 @@
 <section class="msg">
   <div class="wrap">
     <div class="msg-head"><div class="msg-num">4</div><div class="msg-titles"><div class="msg-label">Mensaje 04 · quita el peso de la objeción</div><h2>Pon tú la objeción sobre la mesa</h2></div></div>
+    <div class="when"><b>Cuándo</b> Cuando intuyes qué le frena pero no lo dice, o pospone la llamada por 2ª vez.</div>
     <p class="purpose">Desactivas el freno más común antes de que lo diga. Firmeza y cuidado, a la vez.</p>
     <div class="quote">Si lo que te frena es <var>el precio / el momento / el miedo a no aprovecharlo</var>, te lo digo claro: <var>respuesta honesta — una opción, algo de flexibilidad, o «quizá no es ahora, y también está bien»</var>. No quiero que entres por presión. Quiero que entres segura.</div>
     <div class="why"><span class="k">Por qué funciona</span><p>Al poner tú la objeción, le quitas el miedo y ganas confianza. Nadie decide bien desde la presión — decide bien desde la claridad.</p></div>
@@ -151,9 +158,20 @@
 <section class="msg">
   <div class="wrap">
     <div class="msg-head"><div class="msg-num">5</div><div class="msg-titles"><div class="msg-label">Mensaje 05 · la invitación clara</div><h2>Propón un paso pequeño y claro</h2></div></div>
+    <div class="when"><b>Cuándo</b> Cuando ya hubo conversación pero no acaba de agendar.</div>
     <p class="purpose">Un siguiente paso concreto, sin urgencia falsa y con la puerta abierta a decir que no.</p>
     <div class="quote">Te propongo algo simple, <var>nombre</var>: <var>15 minutos / una llamada / probar X</var>, sin compromiso, para ver juntas si tiene sentido para ti ahora. Si es que sí, te digo cómo seguimos. Si es que no, te deseo lo mejor de corazón. ¿Te va <var>día y hora</var>?</div>
     <div class="why"><span class="k">Por qué funciona</span><p>Un paso claro y pequeño, con permiso para decir que no, convierte más que cualquier «últimas plazas». La decisión ocurre; no la empujas.</p></div>
+  </div>
+</section>
+
+<section class="msg">
+  <div class="wrap">
+    <div class="msg-head"><div class="msg-num" style="font-size:clamp(34px,7vw,52px)">+</div><div class="msg-titles"><div class="msg-label">Bonus · el mensaje del último día</div><h2>El cierre honesto</h2></div></div>
+    <div class="when"><b>Cuándo</b> El día que de verdad cierra la oferta o el carrito.</div>
+    <p class="purpose">Comunicas el cierre como un hecho, no como una táctica. Avisar no es presionar.</p>
+    <div class="quote"><var>nombre</var>, hoy cerramos esto de verdad. Es tu decisión y la respeto sea la que sea — pero quería que lo supieras: después de hoy no voy a poder ofrecerte estas condiciones. Si la idea sigue rondándote, este es el momento de decírmelo.</div>
+    <div class="why"><span class="k">Por qué funciona</span><p>«Quería que lo supieras» traslada la urgencia como información, no como empujón. Deja que sea la persona quien decida qué hacer con ella. Esa es la diferencia entre avisar y presionar.</p></div>
   </div>
 </section>
 
