@@ -29,6 +29,8 @@
   .kicker{font-family:var(--f-type);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--red)}
   .word{font-family:var(--f-word);font-weight:700;letter-spacing:-.02em;text-transform:uppercase}
   .word .i{color:var(--red)}
+  .brandlock{display:inline-flex;align-items:center;gap:12px}
+  .mark{width:36px;height:36px;flex:none;display:block}
   h1{font-family:var(--f-display);font-weight:700;text-transform:uppercase;letter-spacing:-.01em;
     line-height:1.02;font-size:clamp(34px,7vw,60px);margin:.4em 0 0;text-wrap:balance}
   h2{font-family:var(--f-display);font-weight:600;text-transform:uppercase;letter-spacing:-.005em;
@@ -92,7 +94,13 @@
 <section class="hero">
   <div class="wrap">
     <div class="topline">
-      <span class="word">Rec<span class="i">í</span>proca</span>
+      <span class="brandlock">
+        <svg class="mark" viewBox="0 0 64 64" role="img" aria-label="Recíproca">
+          <path d="M37 15.5 A17.5 17.5 0 0 0 37 48.5" fill="none" stroke="#131919" stroke-width="3.1"/>
+          <path d="M27 15.5 A17.5 17.5 0 0 1 27 48.5" fill="none" stroke="#d52518" stroke-width="3.1"/>
+        </svg>
+        <span class="word">Rec<span class="i">í</span>proca</span>
+      </span>
       <span class="tag">Recurso · seguimiento</span>
     </div>
     <span class="kicker">Plantillas para un lead que se enfrió</span>
@@ -164,7 +172,13 @@
 </section>
 
 <footer>
-  <div class="wrap foot">Recíproca by Sanpō · <a href="https://instagram.com/reciprocabysanpo" target="_blank" rel="noopener">@reciprocabysanpo</a> · Cuidado · Claridad · Intención</div>
+  <div class="wrap" style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+    <svg class="mark" viewBox="0 0 64 64" role="img" aria-label="Recíproca" style="width:30px;height:30px">
+      <path d="M37 15.5 A17.5 17.5 0 0 0 37 48.5" fill="none" stroke="#131919" stroke-width="3.1"/>
+      <path d="M27 15.5 A17.5 17.5 0 0 1 27 48.5" fill="none" stroke="#d52518" stroke-width="3.1"/>
+    </svg>
+    <span class="foot">Recíproca by Sanpō · <a href="https://instagram.com/reciprocabysanpo" target="_blank" rel="noopener">@reciprocabysanpo</a> · Cuidado · Claridad · Intención</span>
+  </div>
 </footer>
 
 </body>
