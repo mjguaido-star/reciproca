@@ -44,9 +44,9 @@
   @media(max-width:760px){.inputs{border-right:0;border-bottom:1.5px solid var(--ink)}}
 
   .rowin{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-  @media(max-width:420px){.rowin{grid-template-columns:1fr}}
+  @media(max-width:430px){.rowin{grid-template-columns:1fr}}
   .field{margin-bottom:18px}
-  .field label{display:block;font-family:var(--mono);font-size:13px;margin-bottom:7px}
+  .field label{display:block;font-family:var(--mono);font-size:13px;margin-bottom:6px}
   .field .hint{color:var(--mute);font-size:11.5px;margin-bottom:7px}
   .inbox{display:flex;align-items:center;border:1.5px solid var(--line);background:var(--surface)}
   .inbox:focus-within{border-color:var(--red)}
@@ -55,18 +55,10 @@
     font-family:var(--f-display);font-weight:600;font-size:20px;padding:11px 12px;outline:none;-moz-appearance:textfield}
   .inbox input::-webkit-outer-spin-button,.inbox input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
 
-  .fugas{margin-top:8px;border-top:1px solid var(--line);padding-top:18px}
-  .fugas .lead-q{font-family:var(--mono);font-size:13px;margin-bottom:4px}
-  .fugas .lead-h{color:var(--mute);font-size:11.5px;margin-bottom:14px}
-  .fuga{display:flex;gap:12px;align-items:flex-start;padding:11px 0;border-top:1px solid var(--line);cursor:pointer}
-  .fuga:first-of-type{border-top:0}
-  .fuga input{appearance:none;-webkit-appearance:none;flex:none;width:22px;height:22px;margin:1px 0 0;
-    border:1.5px solid var(--ink);background:var(--surface);cursor:pointer;position:relative;border-radius:3px}
-  .fuga input:checked{background:var(--red);border-color:var(--red)}
-  .fuga input:checked::after{content:"✓";position:absolute;inset:0;display:grid;place-items:center;color:#fff;font-family:var(--f-display);font-size:14px;font-weight:700}
-  .fuga .ftxt{font-size:13.5px;line-height:1.4}
-  .fuga .fn{font-family:var(--mono);color:var(--red);font-size:11px;letter-spacing:.1em}
-  .fuga .fd{color:var(--mute);font-size:12px}
+  .sliderfield{border-top:1px solid var(--line);padding-top:18px;margin-top:4px}
+  .rangewrap{display:flex;align-items:center;gap:14px}
+  input[type=range]{flex:1;accent-color:var(--red);height:4px}
+  .rangeval{font-family:var(--f-display);font-weight:700;font-size:22px;color:var(--red);min-width:52px;text-align:right;font-variant-numeric:tabular-nums}
 
   .result{padding:28px 26px;background:var(--inset);display:flex;flex-direction:column}
   .result .rk{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--red)}
@@ -74,10 +66,11 @@
     font-size:clamp(50px,10vw,80px);letter-spacing:-.01em;margin:6px 0 2px;font-variant-numeric:tabular-nums}
   .bigsub{font-family:var(--mono);font-size:13px;color:var(--ink);margin-bottom:18px}
   .rows{border-top:1px solid var(--line)}
-  .brk{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid var(--line);font-size:13px}
-  .brk .bn{color:var(--mute)}
-  .brk .bv{font-family:var(--f-display);font-weight:600;font-variant-numeric:tabular-nums}
-  .rowsum{display:flex;justify-content:space-between;gap:12px;padding:12px 0 0;font-size:14px}
+  .brk{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid var(--line)}
+  .brk .bn{font-size:13px}
+  .brk .bn small{display:block;color:var(--mute);font-size:11.5px}
+  .brk .bv{font-family:var(--f-display);font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap;align-self:center}
+  .rowsum{display:flex;justify-content:space-between;gap:12px;padding:11px 0 0;font-size:14px}
   .rowsum .v{font-family:var(--f-display);font-weight:600;font-variant-numeric:tabular-nums}
   .yearnote{margin-top:14px;font-family:var(--mono);font-size:13px;color:var(--mute)}
   .yearnote b{color:var(--ink)}
@@ -117,7 +110,7 @@
   <div class="wrap">
     <span class="kicker">Calculadora del dinero dormido</span>
     <h1>¿Cuánto dinero se queda dormido en tu lanzamiento?</h1>
-    <p class="sub">Ves las ventas que has hecho, pero no las que se quedan dormidas entre el lead y el cierre. Pon tus números, marca las fugas que reconozcas, y míralo en euros. Con calma, sin presión.</p>
+    <p class="sub">Ves las ventas que has hecho, pero no las que se quedan dormidas entre el «me interesa» y el cierre. Pon los números de tu último lanzamiento y míralo en euros. Con calma, sin presión.</p>
   </div>
 </section>
 
@@ -128,33 +121,35 @@
       <div class="inputs">
         <div class="rowin">
           <div class="field">
-            <label for="leads">Leads por lanzamiento</label>
-            <div class="hint">Interesados reales.</div>
-            <div class="inbox"><input id="leads" type="number" min="0" step="10" value="400" inputmode="numeric"></div>
+            <label for="web">Leads que llegaron al webinar</label>
+            <div class="hint">O a tu clase / evento de venta.</div>
+            <div class="inbox"><input id="web" type="number" min="0" step="10" value="300" inputmode="numeric"></div>
           </div>
           <div class="field">
-            <label for="precio">Precio del producto</label>
-            <div class="hint">Precio medio.</div>
-            <div class="inbox"><span class="pfx">€</span><input id="precio" type="number" min="0" step="10" value="497" inputmode="numeric"></div>
+            <label for="ticket">Tu ticket medio</label>
+            <div class="hint">Precio medio de lo que vendes.</div>
+            <div class="inbox"><span class="pfx">€</span><input id="ticket" type="number" min="0" step="10" value="497" inputmode="numeric"></div>
           </div>
         </div>
-        <div class="field">
-          <label for="conv">Tu conversión actual (%)</label>
-          <div class="hint">De cada 100 interesados, cuántos compran hoy.</div>
-          <div class="inbox"><input id="conv" type="number" min="0" max="100" step="0.5" value="4" inputmode="decimal"><span class="pfx" style="padding:0 12px 0 0">%</span></div>
+        <div class="rowin">
+          <div class="field">
+            <label for="llam">Cuántos pidieron llamada</label>
+            <div class="hint">Agendaron o la solicitaron.</div>
+            <div class="inbox"><input id="llam" type="number" min="0" step="1" value="45" inputmode="numeric"></div>
+          </div>
+          <div class="field">
+            <label for="ventas">Cuántas ventas cerraste</label>
+            <div class="hint">Compras finales del lanzamiento.</div>
+            <div class="inbox"><input id="ventas" type="number" min="0" step="1" value="20" inputmode="numeric"></div>
+          </div>
         </div>
-
-        <div class="fugas">
-          <div class="lead-q">Las 4 fugas de tu lanzamiento</div>
-          <div class="lead-h">Marca las que reconozcas. Cada una es dinero que se queda dormido.</div>
-          <label class="fuga"><input type="checkbox" class="fchk" data-w="1.25" checked>
-            <span class="ftxt"><span class="fn">01 · Esperar al webinar</span><br><span class="fd">Nadie habla con el lead hasta el directo.</span></span></label>
-          <label class="fuga"><input type="checkbox" class="fchk" data-w="1" checked>
-            <span class="ftxt"><span class="fn">02 · Tratar a todos igual</span><br><span class="fd">La misma conversación para todos, sin cualificar.</span></span></label>
-          <label class="fuga"><input type="checkbox" class="fchk" data-w="1.25" checked>
-            <span class="ftxt"><span class="fn">03 · «Si quiere, ya agendará»</span><br><span class="fd">Si no agenda solo, se da por no interesado.</span></span></label>
-          <label class="fuga"><input type="checkbox" class="fchk" data-w="1.5" checked>
-            <span class="ftxt"><span class="fn">04 · No hacer seguimiento</span><br><span class="fd">Se deja ir al que no compra a la primera.</span></span></label>
+        <div class="sliderfield">
+          <label for="rec">Recuperación con seguimiento uno a uno</label>
+          <div class="hint">De los que hoy se enfrían. Sé realista: 1 de cada 20 ya es dinero real.</div>
+          <div class="rangewrap">
+            <input id="rec" type="range" min="2" max="15" step="1" value="5">
+            <span class="rangeval" id="recval">5%</span>
+          </div>
         </div>
       </div>
 
@@ -163,8 +158,11 @@
         <span class="rk">Dinero dormido · por lanzamiento</span>
         <div class="bignum" id="big">—</div>
         <div class="bigsub" id="bigsub">ventas que puedes despertar con seguimiento</div>
-        <div class="rows" id="brkbox"></div>
-        <div class="rowsum"><span>Ventas que ya haces hoy</span><span class="v" id="rActual">—</span></div>
+        <div class="rows">
+          <div class="brk"><span class="bn">Se enfriaron sin pedir llamada<small id="silN">—</small></span><span class="bv" id="silE">—</span></div>
+          <div class="brk"><span class="bn">Tuvieron llamada y no cerraron<small id="posN">—</small></span><span class="bv" id="posE">—</span></div>
+        </div>
+        <div class="rowsum"><span>Ventas que ya hiciste</span><span class="v" id="rActual">—</span></div>
         <div class="rowsum"><span>Tu techo despertándolo</span><span class="v" id="rTecho">—</span></div>
         <div class="yearnote">Son <b id="extra">—</b> más, del mismo tráfico que ya pagas.</div>
       </div>
@@ -191,35 +189,29 @@
   var num =new Intl.NumberFormat('es-ES',{maximumFractionDigits:0});
   var $=function(id){return document.getElementById(id);};
   function val(id){var n=parseFloat($(id).value);return isNaN(n)?0:n;}
-  var FUGAS=[
-    {n:"01 · Esperar al webinar"},
-    {n:"02 · Tratar a todos igual"},
-    {n:"03 · «Si quiere, ya agendará»"},
-    {n:"04 · No hacer seguimiento"}
-  ];
   function calc(){
-    var L=Math.max(0,val('leads')), P=Math.max(0,val('precio')), c=Math.min(100,Math.max(0,val('conv')));
-    var ventas=L*c/100, actual=ventas*P, noBuy=Math.max(0,L-ventas);
-    var chks=document.querySelectorAll('.fchk');
-    var dormido=0, extraSales=0, rows='';
-    chks.forEach(function(ch,i){
-      if(ch.checked){
-        var w=parseFloat(ch.getAttribute('data-w'));
-        var s=noBuy*w/100, eur=s*P;
-        dormido+=eur; extraSales+=s;
-        rows+='<div class="brk"><span class="bn">'+FUGAS[i].n+'</span><span class="bv">'+euro.format(eur)+'</span></div>';
-      }
-    });
-    if(!rows) rows='<div class="brk"><span class="bn">Marca al menos una fuga</span><span class="bv">—</span></div>';
+    var W=Math.max(0,val('web')), T=Math.max(0,val('ticket'));
+    var Ll=Math.max(0,val('llam')), V=Math.max(0,val('ventas')), r=Math.max(0,val('rec'));
+    Ll=Math.min(Ll,W); V=Math.min(V,Ll);
+    $('recval').textContent=r+'%';
+    var silGap=W-Ll;                    // interesados que nunca pidieron llamada
+    var posGap=Ll-V;                    // hablaron y no cerraron (más templados)
+    var rPost=Math.min(30,r*1.8);       // los de llamada convierten mejor
+    var silSales=silGap*r/100, posSales=posGap*rPost/100;
+    var silEur=silSales*T, posEur=posSales*T;
+    var dormido=silEur+posEur, extra=silSales+posSales;
+    var actual=V*T;
     $('big').textContent=euro.format(dormido);
-    $('brkbox').innerHTML=rows;
+    $('silN').textContent=num.format(Math.round(silGap))+' leads · recuperas '+r+'%';
+    $('silE').textContent=euro.format(silEur);
+    $('posN').textContent=num.format(Math.round(posGap))+' leads · recuperas '+Math.round(rPost)+'%';
+    $('posE').textContent=euro.format(posEur);
     $('rActual').textContent=euro.format(actual);
     $('rTecho').textContent=euro.format(actual+dormido);
-    var e=Math.round(extraSales);
+    var e=Math.round(extra);
     $('extra').textContent='~'+num.format(e)+(e===1?' venta':' ventas');
   }
-  ['leads','precio','conv'].forEach(function(id){$(id).addEventListener('input',calc);});
-  document.querySelectorAll('.fchk').forEach(function(ch){ch.addEventListener('change',calc);});
+  ['web','ticket','llam','ventas','rec'].forEach(function(id){$(id).addEventListener('input',calc);});
   calc();
 </script>
 
