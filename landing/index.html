@@ -58,9 +58,12 @@
   /* fugas list */
   .fugas{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:30px}
   @media(max-width:640px){.fugas{grid-template-columns:1fr}}
-  .fg{background:var(--paper);padding:26px 26px;display:flex;gap:18px}
-  .fg .n{font-family:var(--serif);font-weight:800;font-size:40px;color:var(--red);line-height:.85;flex:none}
-  .fg h3{margin:0 0 5px}
+  .fg{background:var(--paper);padding:23px 26px;display:flex;gap:18px;position:relative;z-index:0;border-top:3px solid var(--red);transition:background .22s ease,transform .22s ease,box-shadow .22s ease}
+  .fg:hover{background:rgba(213,37,24,.06);transform:translateY(-4px);z-index:2;box-shadow:0 16px 32px -14px rgba(213,37,24,.42)}
+  .fg:hover h3{color:var(--red)}
+  .fg:hover .n{transform:scale(1.12)}
+  .fg .n{font-family:var(--serif);font-weight:800;font-size:40px;color:var(--red);line-height:.85;flex:none;transition:transform .22s ease}
+  .fg h3{margin:0 0 5px;transition:color .22s ease}
   .fg p{margin:0;font-size:14.5px;color:var(--mute)}
 
   /* deep band (método) */
@@ -69,8 +72,12 @@
   .band h2{color:var(--ink)}
   .almas{display:grid;grid-template-columns:repeat(3,1fr);gap:34px;margin-top:34px}
   @media(max-width:720px){.almas{grid-template-columns:1fr;gap:26px}}
-  .alma .num{font-family:var(--serif);font-weight:800;font-size:34px;color:var(--red);line-height:1}
-  .alma h3{color:var(--ink);margin:12px 0 4px}
+  .alma{border-top:2px solid var(--red);padding-top:16px;transition:transform .22s ease}
+  .alma:hover{transform:translateY(-4px)}
+  .alma:hover h3{color:var(--red)}
+  .alma:hover .num{transform:translateY(-2px) scale(1.06)}
+  .alma .num{font-family:var(--serif);font-weight:800;font-size:34px;color:var(--red);line-height:1;transition:transform .25s ease}
+  .alma h3{color:var(--ink);margin:12px 0 4px;transition:color .2s ease}
   .alma .src{font-family:var(--mono);font-size:12px;color:var(--red);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
   .alma p{font-size:14.5px;color:var(--mute);margin:0}
   .band .close{font-family:var(--serif);font-style:italic;font-size:clamp(21px,3vw,28px);color:var(--ink);margin-top:40px;max-width:26ch}
@@ -111,7 +118,7 @@
   .btn-ghost:hover{transform:translateY(-3px);box-shadow:0 14px 28px -10px rgba(20,18,16,.45), inset 0 1px 0 rgba(255,255,255,.5)}
   .btn-ghost:active{transform:translateY(1px);box-shadow:0 4px 10px -8px rgba(20,18,16,.4), inset 0 2px 8px rgba(0,0,0,.12)}
   .fineprint{margin-top:16px;font-family:var(--mono);font-size:12.5px;color:var(--mute)}
-  @media(prefers-reduced-motion:reduce){.btn,.btn .arr,.btn::before{transition:none}}
+  @media(prefers-reduced-motion:reduce){.btn,.btn .arr,.btn::before,.fg,.alma,.fg .n,.alma .num{transition:none} .fg:hover,.alma:hover,.fg:hover .n,.alma:hover .num{transform:none}}
 
   .boom{padding:112px 0;text-align:center;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
   .boom .mark{font-family:var(--mono);font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--red);display:block;margin-bottom:24px}
