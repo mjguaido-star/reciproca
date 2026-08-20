@@ -138,7 +138,7 @@
   <div class="wrap">
     <span class="kicker">Calculadora del dinero dormido</span>
     <h1>¿Cuánto dinero se queda dormido en tu lanzamiento?</h1>
-    <p class="sub">Entre el «me interesa» y el cierre hay un hueco donde el dinero se queda dormido. Pon los números de tu último lanzamiento y velo, con calma, en euros. Sin presión.</p>
+    <p class="sub">Entre el “me interesa” y el cierre hay un hueco donde el dinero se queda dormido. Pon los números de tu último lanzamiento y velo, con calma, en euros. Sin presión.</p>
   </div>
 </section>
 
@@ -182,7 +182,7 @@
           </div>
           <div class="sliderfield">
             <label for="rec">Recuperación con seguimiento uno a uno</label>
-            <div class="hint">De los que hoy se enfrían. Sé realista: 1 de cada 20 ya es dinero.</div>
+            <div class="hint">De los que hoy se enfrían. Sé realista, 1 de cada 20 ya es dinero.</div>
             <div class="rangewrap">
               <input id="rec" type="range" min="2" max="15" step="1" value="5">
               <span class="rangeval" id="recval">5%</span>
@@ -192,17 +192,17 @@
 
         <div class="screen">
           <span class="rk">Dinero dormido · por lanzamiento</span>
-          <div class="bignum" id="big">—</div>
+          <div class="bignum" id="big">0</div>
           <div class="bigsub" id="bigsub">ventas que puedes despertar, una a una</div>
-          <div class="interp" id="interp">—</div>
+          <div class="interp" id="interp">0</div>
           <div class="rows">
-            <div class="brk"><span class="bn">Se enfriaron sin pedir llamada<small id="silN">—</small></span><span class="bv" id="silE">—</span></div>
-            <div class="brk"><span class="bn">Hablaron y no cerraron<small id="posN">—</small></span><span class="bv" id="posE">—</span></div>
+            <div class="brk"><span class="bn">Se enfriaron sin pedir llamada<small id="silN">0</small></span><span class="bv" id="silE">0</span></div>
+            <div class="brk"><span class="bn">Hablaron y no cerraron<small id="posN">0</small></span><span class="bv" id="posE">0</span></div>
           </div>
-          <div class="rowsum"><span>Ventas que ya hiciste</span><span class="v" id="rActual">—</span></div>
-          <div class="rowsum"><span>Tu techo despertándolo</span><span class="v" id="rTecho">—</span></div>
-          <div class="annual"><span class="al">Al año · <span id="anioN">3</span> lanzamientos</span><span class="av" id="rAnual">—</span></div>
-          <div class="yearnote">Son <b id="extra">—</b> más por lanzamiento, del mismo tráfico que ya pagas.</div>
+          <div class="rowsum"><span>Ventas que ya hiciste</span><span class="v" id="rActual">0</span></div>
+          <div class="rowsum"><span>Tu techo despertándolo</span><span class="v" id="rTecho">0</span></div>
+          <div class="annual"><span class="al">Al año · <span id="anioN">3</span> lanzamientos</span><span class="av" id="rAnual">0</span></div>
+          <div class="yearnote">Son <b id="extra">0</b> más por lanzamiento, del mismo tráfico que ya pagas.</div>
         </div>
       </div>
     </div>
@@ -215,13 +215,13 @@
       <div class="fuga-list">
         <div class="fg"><div class="n">1</div><div class="t"><b>Esperar al webinar</b><span>Nadie habla con el lead hasta el directo. Días de vínculo y cualificación, perdidos.</span></div></div>
         <div class="fg"><div class="n">2</div><div class="t"><b>Tratar a todos igual</b><span>Quien duda del precio no necesita la misma conversación que quien aún no sabe si es para él.</span></div></div>
-        <div class="fg"><div class="n">3</div><div class="t"><b>«Si quiere, ya agendará»</b><span>Hay quien necesita una pregunta, claridad, o que alguien detecte qué le frena.</span></div></div>
+        <div class="fg"><div class="n">3</div><div class="t"><b>“Si quiere, ya agendará”</b><span>Hay quien necesita una pregunta, claridad, o que alguien detecte qué le frena.</span></div></div>
         <div class="fg"><div class="n">4</div><div class="t"><b>No hacer seguimiento</b><span>Seguimiento no es perseguir: es saber qué conversación continúa y cuál dejar ir.</span></div></div>
       </div>
     </div>
 
     <div class="claim">El dinero no está perdido. <span class="red">Está dormido.</span></div>
-    <p class="disclaim">Una estimación honesta para verlo claro, no una promesa. Los números reales dependen de cada lanzamiento — y de quién acompañe a cada lead, uno a uno.</p>
+    <p class="disclaim">Una estimación honesta para verlo claro, no una promesa. Los números reales dependen de cada lanzamiento, y de quién acompañe a cada lead, uno a uno.</p>
 
     <div class="cta-row">
       <a class="btn cta" href="https://instagram.com/reciprocabysanpo" target="_blank" rel="noopener">¿Despertamos ese dinero? <span class="arr">→</span></a>
@@ -246,7 +246,7 @@
   function interp(dormido,actual){
     if(actual<=0) return "Pon tus ventas para ver dónde está tu oportunidad.";
     var r=dormido/actual;
-    if(r>=1) return "Tienes tanto dinero dormido como el que ya despiertas. El hueco entre el «me interesa» y el cierre es tu mayor oportunidad, sin más tráfico.";
+    if(r>=1) return "Tienes tanto dinero dormido como el que ya despiertas. El hueco entre el “me interesa” y el cierre es tu mayor oportunidad, sin más tráfico.";
     if(r>=0.5) return "Se te duerme casi la mitad de lo que ya vendes. Ahí, en el seguimiento, están tus próximas ventas.";
     if(r>0) return "Aún con un funnel cuidado, hay ventas dormidas esperando el mensaje en el momento justo.";
     return "Tus números están muy ajustados. Aun así, cada lead merece que alguien esté ahí cuando toca.";
