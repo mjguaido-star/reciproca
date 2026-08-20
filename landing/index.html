@@ -88,10 +88,12 @@
   .founders img{width:100%;height:auto;display:block;filter:grayscale(1) contrast(1.03);border:1px solid var(--line)}
 
   /* work / cols */
-  .work-list{margin-top:22px;border-top:1px solid var(--line)}
-  .wl{display:flex;gap:18px;padding:16px 0;border-bottom:1px solid var(--line);align-items:baseline}
-  .wl .k{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--red);white-space:nowrap;min-width:112px}
-  .wl .v{font-size:15px;color:var(--red)}
+  .work-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
+  @media(max-width:600px){.work-grid{grid-template-columns:1fr}}
+  .wcard{background:var(--paper);border:1.5px solid var(--ink);border-radius:16px;padding:24px;box-shadow:0 6px 16px -10px rgba(19,25,25,.35),inset 0 1px 0 rgba(255,255,255,.4);transition:transform .2s ease,box-shadow .2s ease,background .2s ease,border-color .2s ease}
+  .wcard:hover{transform:translateY(-5px);border-color:var(--red);background:rgba(213,37,24,.06);box-shadow:0 20px 38px -14px rgba(213,37,24,.45)}
+  .wcard .k{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--red);display:block;margin-bottom:10px}
+  .wcard p{margin:0;font-size:14.5px;color:var(--ink);line-height:1.55}
 
   /* CTA */
   .cta-band{border-top:1px solid var(--line)}
@@ -118,7 +120,7 @@
   .btn-ghost:hover{transform:translateY(-3px);box-shadow:0 14px 28px -10px rgba(20,18,16,.45), inset 0 1px 0 rgba(255,255,255,.5)}
   .btn-ghost:active{transform:translateY(1px);box-shadow:0 4px 10px -8px rgba(20,18,16,.4), inset 0 2px 8px rgba(0,0,0,.12)}
   .fineprint{margin-top:16px;font-family:var(--mono);font-size:12.5px;color:var(--mute)}
-  @media(prefers-reduced-motion:reduce){.btn .arr,.fg .n,.alma .num{transition:none} .fg:hover,.alma:hover,.fg:hover .n,.alma:hover .num{transform:none}}
+  @media(prefers-reduced-motion:reduce){.btn .arr,.fg .n,.alma .num{transition:none} .fg:hover,.alma:hover,.wcard:hover,.fg:hover .n,.alma:hover .num{transform:none}}
 
   .boom{padding:112px 0;text-align:center;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
   .boom .mark{font-family:var(--mono);font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--red);display:block;margin-bottom:24px}
@@ -228,11 +230,11 @@
   <div class="wrap">
     <span class="eyebrow kick">V · Cómo trabajamos</span>
     <h2>Entramos donde ya hay algo que cuidar.</h2>
-    <div class="work-list">
-      <div class="wl"><span class="k">Qué hacemos</span><span class="v">Seguimiento y cierre de tus leads, uno a uno — el setting y el closing de tu lanzamiento.</span></div>
-      <div class="wl"><span class="k">Modelo</span><span class="v">A comisión, sin fee fijo. Solo entramos donde podemos generar impacto real.</span></div>
-      <div class="wl"><span class="k">Selección</span><span class="v">Pocos lanzamientos a la vez. El proyecto ya vende: nosotras lo cuidamos hasta el sí.</span></div>
-      <div class="wl"><span class="k">Para quién</span><span class="v">Infoproductores que facturan 5k–50k por lanzamiento y no llegan a todos sus leads.</span></div>
+    <div class="work-grid">
+      <div class="wcard"><span class="k">Qué hacemos</span><p>Seguimiento y cierre de tus leads, uno a uno — el setting y el closing de tu lanzamiento.</p></div>
+      <div class="wcard"><span class="k">Modelo</span><p>A comisión, sin fee fijo. Solo entramos donde podemos generar impacto real.</p></div>
+      <div class="wcard"><span class="k">Selección</span><p>Pocos lanzamientos a la vez. El proyecto ya vende: nosotras lo cuidamos hasta el sí.</p></div>
+      <div class="wcard"><span class="k">Para quién</span><p>Infoproductores que facturan 5k–50k por lanzamiento y no llegan a todos sus leads.</p></div>
     </div>
   </div>
 </section>
