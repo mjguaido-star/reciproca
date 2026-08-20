@@ -56,10 +56,10 @@
   @media(max-width:720px){.two{grid-template-columns:1fr;gap:20px}}
 
   /* fugas list */
-  .fugas{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:30px}
+  .fugas{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:30px}
   @media(max-width:640px){.fugas{grid-template-columns:1fr}}
-  .fg{background:var(--paper);padding:23px 26px;display:flex;gap:18px;position:relative;z-index:0;border-top:3px solid var(--red);transition:background .22s ease,transform .22s ease,box-shadow .22s ease}
-  .fg:hover{background:rgba(213,37,24,.10);transform:translateY(-7px);z-index:2;box-shadow:0 24px 46px -14px rgba(213,37,24,.55)}
+  .fg{background:var(--paper);border:1.5px solid var(--ink);border-radius:16px;padding:24px;display:flex;gap:18px;position:relative;z-index:0;box-shadow:0 6px 16px -10px rgba(19,25,25,.35),inset 0 1px 0 rgba(255,255,255,.4);transition:background .2s ease,transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+  .fg:hover{background:rgba(213,37,24,.06);border-color:var(--red);transform:translateY(-5px);z-index:2;box-shadow:0 20px 38px -14px rgba(213,37,24,.45)}
   .fg:hover h3{color:var(--red)}
   .fg:hover .n{transform:scale(1.18)}
   .fg .n{font-family:var(--serif);font-weight:800;font-size:40px;color:var(--red);line-height:.85;flex:none;transition:transform .22s ease}
